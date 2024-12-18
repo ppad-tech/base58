@@ -3,7 +3,6 @@
 module Main where
 
 import Criterion.Main
-import qualified Data.ByteString as BS
 import qualified Data.ByteString.Base58 as B58
 import qualified Data.ByteString.Base58Check as B58C
 
