@@ -7,8 +7,8 @@
       url  = "git://git.ppad.tech/sha256.git";
       ref  = "master";
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.follows = "ppad-sha256/flake-utils";
+    nixpkgs.follows = "ppad-sha256/nixpkgs";
   };
 
   outputs = { self, nixpkgs, flake-utils, ppad-sha256 }:
