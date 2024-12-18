@@ -91,5 +91,11 @@ $ cabal repl ppad-base58
 
 to get a REPL for the main library.
 
+## Attribution
+
+The vectors used in the test suite for both base58
+and base58check are verbatim from paulmillr's
+[scure-base](https://github.com/paulmillr/scure-base) library.
+
 [nixos]: https://nixos.org/
 [flake]: https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake.html
