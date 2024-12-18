@@ -1,7 +1,7 @@
 cabal-version:      3.0
 name:               ppad-base58
-version:            0.1.2
-synopsis:           base58 and base58check encodings.
+version:            0.1.0
+synopsis:           base58 and base58check encoding/decoding.
 license:            MIT
 license-file:       LICENSE
 author:             Jared Tobin
@@ -11,7 +11,7 @@ build-type:         Simple
 tested-with:        GHC == 9.8.1
 extra-doc-files:    CHANGELOG
 description:
-  The base58 and base58check encodings.
+  base58 and base58check encoding/decoding on strict bytestrings.
 
 source-repository head
   type:     git
@@ -29,4 +29,3 @@ library
       base >= 4.9 && < 5
     , bytestring >= 0.9 && < 0.13
     , ppad-sha256 > 0.2 && < 0.3
-    , primitive >= 0.8 && < 0.10
