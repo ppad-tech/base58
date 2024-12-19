@@ -31,6 +31,11 @@ A sample GHCi session:
   Just (0,"hello world")
 ```
 
+## Documentation
+
+Haddocks (API documentation, etc.) are hosted at
+[docs.ppad.tech/base58](https://docs.ppad.tech/base58).
+
 ## Performance
 
 The aim is best-in-class performance for pure, highly-auditable Haskell
