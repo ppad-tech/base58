@@ -75,6 +75,15 @@ leading_zeros = go mempty where
       | h == 0x31 -> go (BS.cons 0x00 acc) t
       | otherwise -> acc
 
+-- to base256
+unroll_base256 :: Integer -> BS.ByteString
+unroll_base256 = BS.reverse . BS.unfoldr coalg where
+  coalg a
+    | a == 0 = Nothing
+    | otherwise = Just $
+        let (b, c) = quotRem a 256
+        in  (fi c, b)
+
 -- from base256
 roll_base256 :: BS.ByteString -> Integer
 roll_base256 = BS.foldl' alg 0 where
@@ -96,13 +105,4 @@ roll_base58 bs = BS.foldl' alg 0 bs where
     Just w -> b * 58 + fi w
     Nothing ->
       error "ppad-base58 (roll_base58): not a base58-encoded bytestring"
-
--- to base256
-unroll_base256 :: Integer -> BS.ByteString
-unroll_base256 = BS.reverse . BS.unfoldr coalg where
-  coalg a
-    | a == 0 = Nothing
-    | otherwise = Just $
-        let (b, c) = quotRem a 256
-        in  (fi c, b)
 
