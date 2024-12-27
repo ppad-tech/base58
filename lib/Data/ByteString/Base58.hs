@@ -19,6 +19,7 @@ import Control.Monad (guard)
 import qualified Data.Bits as B
 import Data.Bits ((.|.))
 import qualified Data.ByteString as BS
+import qualified Data.ByteString.Unsafe as BU
 
 fi :: (Integral a, Num b) => a -> b
 fi = fromIntegral
@@ -86,7 +87,7 @@ unroll_base58 = BS.reverse . BS.unfoldr coalg where
     | a == 0 = Nothing
     | otherwise = Just $
         let (b, c) = quotRem a 58
-        in  (BS.index base58_charset (fi c), b)
+        in  (BU.unsafeIndex base58_charset (fi c), b)
 
 -- from base58
 roll_base58 :: BS.ByteString -> Integer
