@@ -47,6 +47,7 @@ test-suite base58-tests
     , ppad-base58
     , tasty
     , tasty-hunit
+    , tasty-quickcheck
     , text
 
 benchmark base58-bench
