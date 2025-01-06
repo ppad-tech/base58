@@ -1,5 +1,8 @@
 # Changelog
 
+- 0.1.1 (2025-01-06)
+  * Includes a minor encoding-related performance optimisation.
+
 - 0.1.0 (2024-12-18)
   * Initial release, supporting basic encoding/decoding.
 
