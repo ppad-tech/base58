@@ -1,5 +1,11 @@
 # Changelog
 
+- 0.2.0 (2025-02-18)
+  * The base58check encode and decode functions no longer treat version
+    bytes (of which there may now be several) in any special fashion.
+    Version bytes should be prepended to the target string before
+    encoding, and removed manually from any decoded strings.
+
 - 0.1.1 (2025-01-06)
   * Includes a minor encoding-related performance optimisation.
 
