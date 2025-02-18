@@ -12,7 +12,6 @@ import qualified Data.ByteString.Base58 as B58
 import qualified Data.ByteString.Base58Check as B58Check
 import qualified Data.Text.Encoding as TE
 import qualified Data.Text.IO as TIO
-import Data.Word (Word8)
 import Test.Tasty
 import Test.Tasty.HUnit
 import qualified Test.Tasty.QuickCheck as Q
@@ -53,9 +52,7 @@ execute_base58check Base58Check {..} = testGroup "base58check" [
     ]
   where
     execute_valid Valid_Base58Check {..} = testCase "valid" $ do -- label
-      let enc = case BS.uncons vc_payload of
-            Nothing -> error "faulty"
-            Just (h, t) -> B58Check.encode h t
+      let enc = B58Check.encode vc_payload
       assertEqual mempty enc vc_string
 
     execute_invalid Invalid_Base58Check {..} = testCase "invalid" $ do -- label
@@ -89,30 +86,21 @@ bytes k = do
   v <- Q.vectorOf l Q.arbitrary
   pure (BS.pack v)
 
-data B58C = B58C Word8 BS
-  deriving (Eq, Show)
-
 instance Q.Arbitrary BS where
   arbitrary = do
     b <- bytes 1024
     pure (BS b)
-
-instance Q.Arbitrary B58C where
-  arbitrary = do
-    w8 <- Q.arbitrary
-    bs <- Q.arbitrary
-    pure (B58C w8 bs)
 
 base58_decode_inverts_encode :: BS -> Bool
 base58_decode_inverts_encode (BS bs) = case B58.decode (B58.encode bs) of
   Nothing -> False
   Just b  -> b == bs
 
-base58check_decode_inverts_encode :: B58C -> Bool
-base58check_decode_inverts_encode (B58C w8 (BS bs)) =
-  case B58Check.decode (B58Check.encode w8 bs) of
+base58check_decode_inverts_encode :: BS -> Bool
+base58check_decode_inverts_encode (BS bs) =
+  case B58Check.decode (B58Check.encode bs) of
     Nothing -> False
-    Just (w8', bs') -> w8 == w8' && bs == bs'
+    Just b  -> b == bs
 
 main :: IO ()
 main = do

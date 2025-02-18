@@ -23,12 +23,12 @@ A sample GHCi session:
   Just "hello world"
   >
   > -- base58check is a versioned, checksummed format
-  > let b58check = B58Check.encode 0x00 "hello world"
+  > let b58check = B58Check.encode "\NULhello world" -- 0x00 version byte
   > b58check
   "13vQB7B6MrGQZaxCqW9KER"
   >
-  > B58Check.decodeb58check
-  Just (0,"hello world")
+  > B58Check.decode b58check
+  Just "\NULhello world"
 ```
 
 ## Documentation

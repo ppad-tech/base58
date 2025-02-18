@@ -23,7 +23,7 @@ base32 = bgroup "ppad-base32" [
     ]
   , bgroup "base58check" [
       bgroup "encode" [
-        bench "0x00, hello world" $ nf (B58C.encode 0x00) "hello world"
+        bench "0x00, hello world" $ nf B58C.encode "\NULhello world"
       ]
     , bgroup "decode" [
         bench "13vQB7B6MrGQZaxCqW9KER" $
