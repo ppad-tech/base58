@@ -1,4 +1,4 @@
-# ppad-base58
+# base58
 
 [![](https://img.shields.io/hackage/v/ppad-base58?color=blue)](https://hackage.haskell.org/package/ppad-base58)
 ![](https://img.shields.io/badge/license-MIT-brightgreen)
