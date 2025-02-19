@@ -1,10 +1,10 @@
 # ppad-base58
 
-A pure Haskell implementation of base58 and base58check encoding &
-decoding on strict ByteStrings.
-
 [![](https://img.shields.io/hackage/v/ppad-base58?color=blue)](https://hackage.haskell.org/package/ppad-base58)
 ![](https://img.shields.io/badge/license-MIT-brightgreen)
+
+A pure Haskell implementation of base58 and base58check encoding &
+decoding on strict ByteStrings.
 
 ## Usage
 
