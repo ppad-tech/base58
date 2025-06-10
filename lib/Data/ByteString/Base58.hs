@@ -20,10 +20,23 @@ import qualified Data.Bits as B
 import Data.Bits ((.|.))
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Unsafe as BU
+import Data.Word (Word8)
 
 fi :: (Integral a, Num b) => a -> b
 fi = fromIntegral
 {-# INLINE fi #-}
+
+-- word8 base58 character to word6 (ish)
+word6 :: Word8 -> Maybe Word8
+word6 c
+  | c >= 49  && c <= 57  = Just $! c - 49 -- 1–9
+  | c >= 65  && c <= 72  = Just $! c - 56 -- A–H
+  | c >= 74  && c <= 78  = Just $! c - 57 -- J–N
+  | c >= 80  && c <= 90  = Just $! c - 58 -- P–Z
+  | c >= 97  && c <= 107 = Just $! c - 64 -- a–k
+  | c >= 109 && c <= 122 = Just $! c - 65 -- m–z
+  | otherwise            = Nothing
+{-# INLINE word6 #-}
 
 -- | Encode a base256 'ByteString' as base58.
 --
@@ -101,7 +114,7 @@ unroll_base58 = BS.reverse . BS.unfoldr coalg where
 -- from base58
 roll_base58 :: BS.ByteString -> Integer
 roll_base58 bs = BS.foldl' alg 0 bs where
-  alg !b !a = case BS.elemIndex a base58_charset of
+  alg !b !a = case word6 a of
     Just w -> b * 58 + fi w
     Nothing ->
       error "ppad-base58 (roll_base58): not a base58-encoded bytestring"
