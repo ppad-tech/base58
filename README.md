@@ -49,25 +49,25 @@ Current benchmark figures on my mid-2020 MacBook Air look like (use
 `cabal bench` to run the benchmark suite):
 
 ```
-  benchmarking ppad-base32/base58/encode/hello world
+  benchmarking ppad-base58/base58/encode/hello world
   time                 667.4 ns   (661.2 ns .. 674.5 ns)
                        0.999 R²   (0.999 R² .. 1.000 R²)
   mean                 673.5 ns   (669.5 ns .. 678.8 ns)
   std dev              15.91 ns   (13.00 ns .. 21.13 ns)
 
-  benchmarking ppad-base32/base58/decode/StV1DL6CwTryKyV
+  benchmarking ppad-base58/base58/decode/StV1DL6CwTryKyV
   time                 741.2 ns   (731.5 ns .. 752.5 ns)
                        0.999 R²   (0.998 R² .. 0.999 R²)
   mean                 748.3 ns   (741.8 ns .. 757.2 ns)
   std dev              24.98 ns   (20.60 ns .. 31.28 ns)
 
-  benchmarking ppad-base32/base58check/encode/0x00, hello world
+  benchmarking ppad-base58/base58check/encode/0x00, hello world
   time                 5.411 μs   (5.349 μs .. 5.472 μs)
                        0.999 R²   (0.999 R² .. 1.000 R²)
   mean                 5.389 μs   (5.352 μs .. 5.439 μs)
   std dev              142.5 ns   (119.5 ns .. 184.4 ns)
 
-  benchmarking ppad-base32/base58check/decode/13vQB7B6MrGQZaxCqW9KER
+  benchmarking ppad-base58/base58check/decode/13vQB7B6MrGQZaxCqW9KER
   time                 5.825 μs   (5.722 μs .. 5.930 μs)
                        0.998 R²   (0.997 R² .. 0.999 R²)
   mean                 5.718 μs   (5.655 μs .. 5.792 μs)
