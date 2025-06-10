@@ -29,13 +29,13 @@ fi = fromIntegral
 -- word8 base58 character to word6 (ish)
 word6 :: Word8 -> Maybe Word8
 word6 c
-  | c >= 49  && c <= 57  = Just $! c - 49 -- 1–9
-  | c >= 65  && c <= 72  = Just $! c - 56 -- A–H
-  | c >= 74  && c <= 78  = Just $! c - 57 -- J–N
-  | c >= 80  && c <= 90  = Just $! c - 58 -- P–Z
-  | c >= 97  && c <= 107 = Just $! c - 64 -- a–k
-  | c >= 109 && c <= 122 = Just $! c - 65 -- m–z
-  | otherwise            = Nothing
+  | c >= 49  && c <= 57  = pure $! c - 49 -- 1–9
+  | c >= 65  && c <= 72  = pure $! c - 56 -- A–H
+  | c >= 74  && c <= 78  = pure $! c - 57 -- J–N
+  | c >= 80  && c <= 90  = pure $! c - 58 -- P–Z
+  | c >= 97  && c <= 107 = pure $! c - 64 -- a–k
+  | c >= 109 && c <= 122 = pure $! c - 65 -- m–z
+  | otherwise = Nothing
 {-# INLINE word6 #-}
 
 -- | Encode a base256 'ByteString' as base58.
