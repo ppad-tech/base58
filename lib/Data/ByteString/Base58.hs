@@ -117,5 +117,5 @@ roll_base58 bs = BS.foldl' alg 0 bs where
   alg !b !a = case word6 a of
     Just w -> b * 58 + fi w
     Nothing ->
-      error "ppad-base58 (roll_base58): not a base58-encoded bytestring"
+      error "ppad-base58 (roll_base58): internal error"
 
