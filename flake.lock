@@ -71,11 +71,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737298572,
-        "narHash": "sha256-iAo6GFH1FLNi0wt0FczbqPCmVzCm9gfMEjk1oakExt0=",
+        "lastModified": 1740802974,
+        "narHash": "sha256-GTD9UrxwMa5zY7hxzDSXjKXKUwMK4r3FBHLG0nvgapk=",
         "ref": "master",
-        "rev": "abc984dc65f0df9bd958c0bc8f390c68e660f710",
-        "revCount": 87,
+        "rev": "ab0957e305dff0243dcab11e381470585849fd20",
+        "revCount": 94,
         "type": "git",
         "url": "git://git.ppad.tech/sha256.git"
       },

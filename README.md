@@ -45,33 +45,33 @@ Haddocks (API documentation, etc.) are hosted at
 The aim is best-in-class performance for pure, highly-auditable Haskell
 code.
 
-Current benchmark figures on my mid-2020 MacBook Air look like (use
+Current benchmark figures on a M4 Silicon MacBook Air look like (use
 `cabal bench` to run the benchmark suite):
 
 ```
   benchmarking ppad-base58/base58/encode/hello world
-  time                 667.4 ns   (661.2 ns .. 674.5 ns)
-                       0.999 R²   (0.999 R² .. 1.000 R²)
-  mean                 673.5 ns   (669.5 ns .. 678.8 ns)
-  std dev              15.91 ns   (13.00 ns .. 21.13 ns)
+  time                 356.9 ns   (355.7 ns .. 359.2 ns)
+                       1.000 R²   (1.000 R² .. 1.000 R²)
+  mean                 357.4 ns   (356.7 ns .. 359.4 ns)
+  std dev              3.439 ns   (1.609 ns .. 6.911 ns)
 
   benchmarking ppad-base58/base58/decode/StV1DL6CwTryKyV
-  time                 741.2 ns   (731.5 ns .. 752.5 ns)
-                       0.999 R²   (0.998 R² .. 0.999 R²)
-  mean                 748.3 ns   (741.8 ns .. 757.2 ns)
-  std dev              24.98 ns   (20.60 ns .. 31.28 ns)
+  time                 397.7 ns   (397.2 ns .. 398.1 ns)
+                       1.000 R²   (1.000 R² .. 1.000 R²)
+  mean                 397.3 ns   (397.1 ns .. 397.6 ns)
+  std dev              942.3 ps   (752.8 ps .. 1.232 ns)
 
   benchmarking ppad-base58/base58check/encode/0x00, hello world
-  time                 5.411 μs   (5.349 μs .. 5.472 μs)
-                       0.999 R²   (0.999 R² .. 1.000 R²)
-  mean                 5.389 μs   (5.352 μs .. 5.439 μs)
-  std dev              142.5 ns   (119.5 ns .. 184.4 ns)
+  time                 2.430 μs   (2.428 μs .. 2.431 μs)
+                       1.000 R²   (1.000 R² .. 1.000 R²)
+  mean                 2.433 μs   (2.432 μs .. 2.434 μs)
+  std dev              4.715 ns   (3.868 ns .. 5.971 ns)
 
   benchmarking ppad-base58/base58check/decode/13vQB7B6MrGQZaxCqW9KER
-  time                 5.825 μs   (5.722 μs .. 5.930 μs)
-                       0.998 R²   (0.997 R² .. 0.999 R²)
-  mean                 5.718 μs   (5.655 μs .. 5.792 μs)
-  std dev              228.0 ns   (190.7 ns .. 275.4 ns)
+  time                 2.500 μs   (2.497 μs .. 2.504 μs)
+                       1.000 R²   (1.000 R² .. 1.000 R²)
+  mean                 2.506 μs   (2.503 μs .. 2.510 μs)
+  std dev              9.919 ns   (7.444 ns .. 14.66 ns)
 ```
 
 ## Security

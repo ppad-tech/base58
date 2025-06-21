@@ -1,5 +1,8 @@
 # Changelog
 
+- 0.2.1 (2025-06-21)
+  * Minor performance improvements and internal housekeeping.
+
 - 0.2.0 (2025-02-18)
   * The base58check encode and decode functions no longer treat version
     bytes (of which there may now be several) in any special fashion.
