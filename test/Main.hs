@@ -21,10 +21,15 @@ data Valid_Base58Check = Valid_Base58Check {
   , vc_payload :: !BS.ByteString
   } deriving Show
 
+decodeLenient :: BS.ByteString -> BS.ByteString
+decodeLenient bs = case B16.decode bs of
+  Nothing -> error "boom"
+  Just v -> v
+
 instance A.FromJSON Valid_Base58Check where
   parseJSON = A.withObject "Valid_Base58Check" $ \m -> Valid_Base58Check
     <$> fmap TE.encodeUtf8 (m .: "string")
-    <*> fmap (B16.decodeLenient . TE.encodeUtf8) (m .: "payload")
+    <*> fmap (decodeLenient . TE.encodeUtf8) (m .: "payload")
 
 data Invalid_Base58Check = Invalid_Base58Check {
     ic_string  :: !BS.ByteString
@@ -69,7 +74,7 @@ data Valid_Base58 = Valid_Base58 {
 
 instance A.FromJSON Valid_Base58 where
   parseJSON = A.withObject "Valid_Base58" $ \m -> Valid_Base58
-    <$> fmap (B16.decodeLenient . TE.encodeUtf8) (m .: "decodedHex")
+    <$> fmap (decodeLenient . TE.encodeUtf8) (m .: "decodedHex")
     <*> fmap TE.encodeUtf8 (m .: "encoded")
 
 execute_base58 :: Valid_Base58 -> TestTree -- XX label

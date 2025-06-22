@@ -42,8 +42,8 @@ test-suite base58-tests
   build-depends:
       aeson
     , base
-    , base16-bytestring
     , bytestring
+    , ppad-base16
     , ppad-base58
     , tasty
     , tasty-hunit
