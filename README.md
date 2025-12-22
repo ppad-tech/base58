@@ -50,29 +50,33 @@ Current benchmark figures on a M4 Silicon MacBook Air look like (use
 
 ```
   benchmarking ppad-base58/base58/encode/hello world
-  time                 356.9 ns   (355.7 ns .. 359.2 ns)
-                       1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 357.4 ns   (356.7 ns .. 359.4 ns)
-  std dev              3.439 ns   (1.609 ns .. 6.911 ns)
+  time                 350.3 ns   (349.2 ns .. 352.0 ns)
+                       0.999 R²   (0.997 R² .. 1.000 R²)
+  mean                 353.0 ns   (351.9 ns .. 354.9 ns)
+  std dev              4.705 ns   (3.411 ns .. 7.449 ns)
+  variance introduced by outliers: 13% (moderately inflated)
 
   benchmarking ppad-base58/base58/decode/StV1DL6CwTryKyV
-  time                 397.7 ns   (397.2 ns .. 398.1 ns)
-                       1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 397.3 ns   (397.1 ns .. 397.6 ns)
-  std dev              942.3 ps   (752.8 ps .. 1.232 ns)
+  time                 377.7 ns   (373.7 ns .. 380.7 ns)
+                       0.999 R²   (0.999 R² .. 1.000 R²)
+  mean                 379.4 ns   (376.8 ns .. 381.8 ns)
+  std dev              9.020 ns   (7.823 ns .. 10.76 ns)
+  variance introduced by outliers: 32% (moderately inflated)
 
   benchmarking ppad-base58/base58check/encode/0x00, hello world
-  time                 2.430 μs   (2.428 μs .. 2.431 μs)
+  time                 1.197 μs   (1.195 μs .. 1.200 μs)
                        1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 2.433 μs   (2.432 μs .. 2.434 μs)
-  std dev              4.715 ns   (3.868 ns .. 5.971 ns)
+  mean                 1.200 μs   (1.198 μs .. 1.202 μs)
+  std dev              7.256 ns   (6.187 ns .. 8.819 ns)
 
   benchmarking ppad-base58/base58check/decode/13vQB7B6MrGQZaxCqW9KER
-  time                 2.500 μs   (2.497 μs .. 2.504 μs)
+  time                 1.222 μs   (1.218 μs .. 1.225 μs)
                        1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 2.506 μs   (2.503 μs .. 2.510 μs)
-  std dev              9.919 ns   (7.444 ns .. 14.66 ns)
+  mean                 1.220 μs   (1.217 μs .. 1.223 μs)
+  std dev              9.566 ns   (8.250 ns .. 11.28 ns)
 ```
+
+You should build with the 'llvm' flag for maximum performance.
 
 ## Security
 

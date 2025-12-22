@@ -97,16 +97,19 @@
           "ppad-nixpkgs",
           "nixpkgs"
         ],
+        "ppad-base16": [
+          "ppad-base16"
+        ],
         "ppad-nixpkgs": [
           "ppad-nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1740802974,
-        "narHash": "sha256-GTD9UrxwMa5zY7hxzDSXjKXKUwMK4r3FBHLG0nvgapk=",
+        "lastModified": 1766435555,
+        "narHash": "sha256-ysN0iRuBLSQrgWU3rCFUyq0NvRpug6DTBRZSlWbmI1A=",
         "ref": "master",
-        "rev": "ab0957e305dff0243dcab11e381470585849fd20",
-        "revCount": 94,
+        "rev": "a4c17689cd66e1ef35c667914765cb24c9a4b305",
+        "revCount": 96,
         "type": "git",
         "url": "git://git.ppad.tech/sha256.git"
       },

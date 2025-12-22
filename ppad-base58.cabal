@@ -13,6 +13,11 @@ extra-doc-files:    CHANGELOG
 description:
   base58 and base58check encoding/decoding on strict bytestrings.
 
+flag llvm
+  description: Use GHC's LLVM backend.
+  default:     False
+  manual:      True
+
 source-repository head
   type:     git
   location: git.ppad.tech/base58.git
@@ -22,6 +27,8 @@ library
   hs-source-dirs:   lib
   ghc-options:
       -Wall
+  if flag(llvm)
+    ghc-options: -fllvm -O2
   exposed-modules:
       Data.ByteString.Base58
     , Data.ByteString.Base58Check
