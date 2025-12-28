@@ -50,30 +50,30 @@ Current benchmark figures on a M4 Silicon MacBook Air look like (use
 
 ```
   benchmarking ppad-base58/base58/encode/hello world
-  time                 350.3 ns   (349.2 ns .. 352.0 ns)
-                       0.999 R²   (0.997 R² .. 1.000 R²)
-  mean                 353.0 ns   (351.9 ns .. 354.9 ns)
-  std dev              4.705 ns   (3.411 ns .. 7.449 ns)
-  variance introduced by outliers: 13% (moderately inflated)
+  time                 364.8 ns   (362.4 ns .. 366.2 ns)
+                       1.000 R²   (1.000 R² .. 1.000 R²)
+  mean                 360.4 ns   (359.3 ns .. 361.8 ns)
+  std dev              4.193 ns   (3.434 ns .. 5.082 ns)
+  variance introduced by outliers: 10% (moderately inflated)
 
   benchmarking ppad-base58/base58/decode/StV1DL6CwTryKyV
-  time                 377.7 ns   (373.7 ns .. 380.7 ns)
-                       0.999 R²   (0.999 R² .. 1.000 R²)
-  mean                 379.4 ns   (376.8 ns .. 381.8 ns)
-  std dev              9.020 ns   (7.823 ns .. 10.76 ns)
-  variance introduced by outliers: 32% (moderately inflated)
+  time                 355.0 ns   (352.8 ns .. 358.9 ns)
+                       1.000 R²   (0.999 R² .. 1.000 R²)
+  mean                 360.6 ns   (358.6 ns .. 362.2 ns)
+  std dev              6.168 ns   (5.045 ns .. 7.390 ns)
+  variance introduced by outliers: 20% (moderately inflated)
 
   benchmarking ppad-base58/base58check/encode/0x00, hello world
-  time                 1.197 μs   (1.195 μs .. 1.200 μs)
+  time                 998.1 ns   (996.7 ns .. 999.5 ns)
                        1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 1.200 μs   (1.198 μs .. 1.202 μs)
-  std dev              7.256 ns   (6.187 ns .. 8.819 ns)
+  mean                 999.1 ns   (996.2 ns .. 1.002 μs)
+  std dev              9.393 ns   (6.903 ns .. 11.96 ns)
 
   benchmarking ppad-base58/base58check/decode/13vQB7B6MrGQZaxCqW9KER
-  time                 1.222 μs   (1.218 μs .. 1.225 μs)
+  time                 1.037 μs   (1.033 μs .. 1.040 μs)
                        1.000 R²   (1.000 R² .. 1.000 R²)
-  mean                 1.220 μs   (1.217 μs .. 1.223 μs)
-  std dev              9.566 ns   (8.250 ns .. 11.28 ns)
+  mean                 1.039 μs   (1.038 μs .. 1.041 μs)
+  std dev              4.926 ns   (3.584 ns .. 6.859 ns)
 ```
 
 You should build with the 'llvm' flag for maximum performance.

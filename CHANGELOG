@@ -1,5 +1,8 @@
 # Changelog
 
+- 0.2.2 (2025-12-28)
+  * Adds an 'llvm' build flag and tests with GHC 9.10.3.
+
 - 0.2.1 (2025-06-21)
   * Minor performance improvements and internal housekeeping.
 
