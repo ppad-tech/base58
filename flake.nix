@@ -73,6 +73,7 @@
               cabal
               cc
               llvm
+              clang
             ];
 
             doBenchmark = true;
