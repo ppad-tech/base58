@@ -1,5 +1,10 @@
 # Changelog
 
+- 0.2.4 (2026-10-10)
+  * Decoding now validates and converts input in a single pass, and is
+    somewhat faster on longer inputs.
+  * Expands the test suite with decoding vectors and invalid inputs.
+
 - 0.2.3 (2026-01-10)
   * Bumps the ppad-sha256 dependency.
 
