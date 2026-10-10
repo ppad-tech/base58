@@ -40,7 +40,8 @@ decode :: BS.ByteString -> Maybe BS.ByteString
 decode mb = do
   bs <- B58.decode mb
   let len = BS.length bs
-      (pay, kek) = BS.splitAt (len - 4) bs
+  guard (len >= 4)
+  let (pay, kek) = BS.splitAt (len - 4) bs
       man = BS.take 4 (SHA256.hash (SHA256.hash pay))
   guard (kek == man)
   pure pay
