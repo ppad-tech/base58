@@ -64,21 +64,11 @@ base58_charset = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 
 -- produce leading ones from leading zeros
 leading_ones :: BS.ByteString -> BS.ByteString
-leading_ones = go mempty where
-  go acc bs = case BS.uncons bs of
-    Nothing -> acc
-    Just (h, t)
-      | h == 0 -> go (BS.cons 0x31 acc) t
-      | otherwise -> acc
+leading_ones bs = BS.replicate (BS.length (BS.takeWhile (== 0x00) bs)) 0x31
 
 -- produce leading zeros from leading ones
 leading_zeros :: BS.ByteString -> BS.ByteString
-leading_zeros = go mempty where
-  go acc bs = case BS.uncons bs of
-    Nothing -> acc
-    Just (h, t)
-      | h == 0x31 -> go (BS.cons 0x00 acc) t
-      | otherwise -> acc
+leading_zeros bs = BS.replicate (BS.length (BS.takeWhile (== 0x31) bs)) 0x00
 
 -- to base256
 unroll_base256 :: Integer -> BS.ByteString
