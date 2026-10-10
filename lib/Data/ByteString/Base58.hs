@@ -15,7 +15,6 @@ module Data.ByteString.Base58 (
   , decode
   ) where
 
-import Control.Monad (guard)
 import qualified Data.Bits as B
 import Data.Bits ((.|.))
 import qualified Data.ByteString as BS
@@ -56,16 +55,9 @@ encode bs = ls <> unroll_base58 (roll_base256 bs) where
 --   Nothing
 decode :: BS.ByteString -> Maybe BS.ByteString
 decode bs = do
-  guard (verify_base58 bs)
+  n <- roll_base58 bs
   let ls = leading_zeros bs
-  pure $ ls <> unroll_base256 (roll_base58 bs)
-
-verify_base58 :: BS.ByteString -> Bool
-verify_base58 bs = case BS.uncons bs of
-  Nothing -> True
-  Just (h, t)
-    | BS.elem h base58_charset -> verify_base58 t
-    | otherwise -> False
+  pure $ ls <> unroll_base256 n
 
 base58_charset :: BS.ByteString
 base58_charset = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
@@ -111,11 +103,13 @@ unroll_base58 = BS.reverse . BS.unfoldr coalg where
         let (b, c) = quotRem a 58
         in  (BU.unsafeIndex base58_charset (fi c), b)
 
--- from base58
-roll_base58 :: BS.ByteString -> Integer
-roll_base58 bs = BS.foldl' alg 0 bs where
-  alg !b !a = case word6 a of
-    Just w -> b * 58 + fi w
-    Nothing ->
-      error "ppad-base58 (roll_base58): internal error"
+-- from base58, failing on any non-base58 character
+roll_base58 :: BS.ByteString -> Maybe Integer
+roll_base58 bs = go 0 0 where
+  l = BS.length bs
+  go !acc !i
+    | i == l = Just acc
+    | otherwise = case word6 (BU.unsafeIndex bs i) of
+        Nothing -> Nothing
+        Just w  -> go (acc * 58 + fi w) (i + 1)
 
