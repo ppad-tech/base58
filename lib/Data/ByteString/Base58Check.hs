@@ -1,5 +1,3 @@
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module: Data.ByteString.Base58Check
 -- Copyright: (c) 2024 Jared Tobin
